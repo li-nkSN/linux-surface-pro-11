@@ -6,8 +6,8 @@ ROOTFS_URL=http://os.archlinuxarm.org/os/ArchLinuxARM-aarch64-latest.tar.gz
 DISK_IMAGE_NAME=arch-linux-arm-sp11.img
 DISK_IMAGE_SIZE_MB=4096
 
-KERNEL_GIT_REPO=https://github.com/dwhinham/kernel-surface-pro-11
-KERNEL_GIT_BRANCH=wip/x1e80100-6.14-rc5-sp11
+KERNEL_GIT_REPO=https://github.com/jglathe/linux_ms_dev_kit
+KERNEL_GIT_BRANCH=jg/ubuntu-qcom-x1e-6.14-rc6
 
 KERNEL_BASE_CONFIG_URL=https://raw.githubusercontent.com/archlinuxarm/PKGBUILDs/master/core/linux-aarch64-rc/config
 
@@ -193,7 +193,7 @@ function build_kernel {
 
 		./build/linux-sp11/scripts/kconfig/merge_config.sh -O build/linux-sp11 -m \
 				build/alarm_base_config \
-				build/linux-sp11/arch/arm64/configs/johan_defconfig \
+				build/linux-sp11/arch/arm64/configs/ubuntu_x1e_defconfig \
 				kernel_config_fragment
 
 		make -C build/linux-sp11 olddefconfig
